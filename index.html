@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quote</title>
+
+    <style>
+
+        .widget {
+            padding: 5px 5px ;
+            color: #000000;
+            text-align: center;
+                max-width: 95%;
+            margin: auto;
+            font-variant-caps: petite-caps;
+            font-size: 2em;
+
+        }
+
+        div {
+             width: 95%;
+             min-height: 100px;
+
+            background:
+                linear-gradient(to right, black 4px, transparent 4px) 0 0,
+                linear-gradient(to right, black 4px, transparent 4px) 0 100%,
+                linear-gradient(to left, black 4px, transparent 4px) 100% 0,
+                linear-gradient(to left, black 4px, transparent 4px) 100% 100%,
+                linear-gradient(to bottom, black 4px, transparent 4px) 0 0,
+                linear-gradient(to bottom, black 4px, transparent 4px) 100% 0,
+                linear-gradient(to top, black 4px, transparent 4px) 0 100%,
+                linear-gradient(to top, black 4px, transparent 4px) 100% 100%;
+
+            background-repeat: no-repeat;
+            background-size: 20px 20px;
+}
+
+     
+    </style>
+</head>
+<body>
+
+    <div class="widget" id="widget"></div>
+
+
+<script>
+
+quotes=[
+"Rose, before I go, I just want to tell you, you were fantastic. Absolutely fantastic. And do you know what? So was I.",
+"You want weapons? We're in a library. Books! Best weapons in the world. This room's the greatest arsenal we could have.",
+"There's a lot of things you need to get across this universe. Warp drive, wormhole refractors. You know the thing you need most of all? You need a hand to hold.",
+"I don't want to go",
+"The way I see it, every life is a pile of good things and bad things. The good things don't always soften the bad things, but vice versa, the bad things don't necessarily spoil the good things or make them unimportant.",
+"The universe is big. It's vast and complicated and ridiculous, and sometimes, very rarely, impossible things just happen and we call them miracles.",
+"I am and always will be the optimist. The hoper of far-flung hopes and the dreamer of improbable dreams.",
+"Good men don't need rules. Today is not the day to find out why I have so many.",
+"I'm not running away from things. I'm running to them before they flare and fade forever.",
+"We're all different people all through our lives. And that's okay, that's good, you've got to keep moving, so long as you remember all the people that you used to be.",
+"I will not forget one line of this. Not one day. I swear. I will always remember when the Doctor was me.",
+"What's wrong with scared? Scared is a superpower. It's your superpower. There is danger in this room and guess what? It's you.",
+"Because love, it's not an emotion. Love is a promise.",
+"What do you say to lunch, followed by breakfast? Because we're time travellers and that's how we roll.",
+"Run like hell, because you always need to. Laugh at everything, because it's always funny.",
+"Well, most people when don't understand something, they frown. You smile.",
+"Laugh hard. Run fast. Be kind. Doctor… I let you go.",
+"The Doctor in the Tardis. Next stop, everywhere.",
+"You and me, time and space. You watch us run.",
+"When you run with the Doctor, it feels like it will never end. But however hard you try, you can't run for ever.",
+"When you love the Doctor, it's like loving the stars themselves. You don't expect a sunset to admire you back.",
+"These have been the best years of my life, and they are mine. Tomorrow is promised to no one, Doctor, but I insist upon my past. I am entitled to that. It's mine.",
+"We are all stories in the end"
+];
+
+const INTERVAL = 86400000;
+
+function dispalyQuote(){
+
+    document.getElementById('widget').innerHTML =quotes[0];
+    quotes.forEach((quote, i) => {
+        setTimeout(() => {
+            document.getElementById('widget').innerHTML =quote;
+        }, i * INTERVAL);  
+    });
+    }
+
+    function dispalyWidget() {
+        dispalyQuote();
+        setTimeout(dispalyWidget, quotes.length*INTERVAL);
+    }
+    dispalyWidget()
+
+</script>
+
+</body>
+</html>
